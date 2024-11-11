@@ -30,4 +30,4 @@
 The project for this module is to create an ELIZA chatbot and to deploy it using Github Actions.
 This project will be made using HTML, CSS for a user interface. JavaScript and/or WebAssembly for the chatbot logic.
 
-Github Pages Link: "Insert Github Pages link here"
+Github Pages Link: https://eoinconcannon.github.io/emergingTech/eliza/

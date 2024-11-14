@@ -1,13 +1,50 @@
 // Initialize conversation history
 let conversationHistory = "";
 
-// Basic pattern-matching responses
+// Responses for ELIZA
 const responses = [
-    { pattern: /hello/i, response: "Hello! How can I help you today?" },
+    { pattern: /hello|hi/i, response: "Hello! How can I help you today?" },
     { pattern: /i need (.*)/i, response: "Why do you need $1?" },
+    { pattern: /i want (.*)/i, response: "What would it mean to you if you got $1?" },
     { pattern: /i feel (.*)/i, response: "Why do you feel $1?" },
-    { pattern: /bye|exit/i, response: "Goodbye! Take care!" },
-    { pattern: /.*(.*)/i, response: "Can you tell me more about that?" } // Default response
+    { pattern: /i am (.*)/i, response: "How long have you been $1?" },
+    { pattern: /because (.*)/i, response: "Is that the real reason you think $1?" },
+    { pattern: /why can'?t i (.*)/i, response: "Do you think you should be able to $1?" },
+    { pattern: /are you (.*)/i, response: "What would it mean to you if I were $1?" },
+    { pattern: /what (.*)/i, response: "Why do you ask that?" },
+    { pattern: /how (.*)/i, response: "How do you suppose?" },
+    { pattern: /my (.*)/i, response: "Your $1?" },
+    { pattern: /mother|father|family|parent/i, response: "Tell me more about your family." },
+    { pattern: /child(.*)/i, response: "Did you have a close relationship with your childhood?" },
+    { pattern: /friend(.*)/i, response: "Do you value your friendships?" },
+    { pattern: /sorry/i, response: "There’s no need to apologize." },
+    { pattern: /thank you|thanks/i, response: "You're welcome!" },
+    { pattern: /yes/i, response: "Can you tell me more?" },
+    { pattern: /no/i, response: "Why not?" },
+    { pattern: /maybe/i, response: "Why the uncertainty?" },
+    { pattern: /i can'?t (.*)/i, response: "What would it take for you to be able to $1?" },
+    { pattern: /i'?m (.*)/i, response: "How does being $1 make you feel?" },
+    { pattern: /is it (.*)/i, response: "Do you think it is $1?" },
+    { pattern: /it is (.*)/i, response: "Why do you think it is $1?" },
+    { pattern: /do you think (.*)/i, response: "Why do you ask whether I think $1?" },
+    { pattern: /do you feel (.*)/i, response: "Why do you wonder if I feel $1?" },
+    { pattern: /are you sure/i, response: "Why do you ask if I'm sure?" },
+    { pattern: /you are (.*)/i, response: "What makes you think I am $1?" },
+    { pattern: /am i (.*)/i, response: "Why do you ask if you are $1?" },
+    { pattern: /you'?re (.*)/i, response: "Does it bother you that I am $1?" },
+    { pattern: /i think (.*)/i, response: "Why do you think $1?" },
+    { pattern: /i don'?t (.*)/i, response: "Why don’t you $1?" },
+    { pattern: /everyone (.*)/i, response: "Can you think of anyone in particular?" },
+    { pattern: /always (.*)/i, response: "Can you think of a specific time when it was different?" },
+    { pattern: /never (.*)/i, response: "Why do you think that has never happened?" },
+    { pattern: /love/i, response: "Tell me more about your feelings of love." },
+    { pattern: /hate/i, response: "Why do you feel hate toward that?" },
+    { pattern: /angry|mad/i, response: "What makes you feel angry?" },
+    { pattern: /happy/i, response: "What makes you feel happy?" },
+    { pattern: /sad/i, response: "What makes you feel sad?" },
+    { pattern: /tired|exhausted/i, response: "Why do you feel tired?" },
+    { pattern: /bye|exit|quit/i, response: "Goodbye! Take care!" },
+    { pattern: /.*/i, response: "Can you tell me more about that?" } // Default response
 ];
 
 // Send message function

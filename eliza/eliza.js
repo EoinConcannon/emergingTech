@@ -64,9 +64,12 @@ function sendMessage() {
 function getResponse(userText) {
     for (let item of responses) {
         if (item.pattern.test(userText)) {
-            return item.response.replace(/\$1/, userText.match(item.pattern)[1] || "");
+            const match = userText.match(item.pattern);
+            // Use captured group or fallback to a simpler response
+            return item.response.replace(/\$1/, match[1] || "");
         }
     }
+    return "I'm not sure I understand. Can you clarify?";
 }
 
 // Add messages to conversation history

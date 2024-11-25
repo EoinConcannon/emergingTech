@@ -55,7 +55,7 @@ function sendMessage() {
     addMessageToHistory("You", userInput);
 
     const response = getResponse(userInput);
-    simulateTyping(response);
+    addMessageToHistory("ELIZA", response);
 
     document.getElementById("user-input").value = "";
 }
@@ -70,18 +70,6 @@ function getResponse(userText) {
         }
     }
     return "I'm not sure I understand. Can you clarify?";
-}
-
-// Simulate typing effect
-function simulateTyping(response) {
-    const typingIndicator = `<p><em>ELIZA is typing...</em></p>`;
-    document.getElementById("chat-history").innerHTML = conversationHistory + typingIndicator;
-
-    setTimeout(() => {
-        // Remove typing indicator and add actual response
-        document.getElementById("chat-history").innerHTML = conversationHistory;
-        addMessageToHistory("ELIZA", response);
-    }, 1500); // 1.5 second delay
 }
 
 // Add messages to conversation history

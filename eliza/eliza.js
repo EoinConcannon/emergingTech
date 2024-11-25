@@ -56,6 +56,7 @@ function sendMessage() {
 
     const response = getResponse(userInput);
     simulateTypingLetterByLetter(response);
+    addMessageToHistory("ELIZA", response);
 
     document.getElementById("user-input").value = "";
 }

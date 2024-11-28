@@ -20,12 +20,17 @@
 ### Task One
 In task one, I was tasked with getting five books from Gutenberg.org. These books serve as the groundwork for our language model. This is probably the most important/interesting requirement of the tasks as depending on what you chose can have an influence on the type of words that are generated. For example, I chose Friedrich Nietzsche's book "Beyond Good and Evil" (published in 1886) and Miguel de Cervantes's book "Don Quixote" (published in 1605), my choosing of these books will show influences of German and Spanish.
 
+Once I got my five books, I had to process each book by removing unwanted characters and sections. First, I converted all characters in the book to uppercase using `.upper()`. I then had to remove all unwanted characters (characters that are not ASCII letters, fullstops and spaces)  Lastly, I split the text using `mainText = text.split('***')`, which splits the text creating a list where lines containing `***` will create a new list item with. Gutenberg uses `***` to indicate where the original contents of the book begin and end. This means that split will create a list contain three items, the second item is the one that I will be using, `mainText[2]`.
+
+I created a trigram model by combining all processed texts.
+
 ### Task Two
+In task two
 
 ### Task Three
 
 ### Task Four
-
+The final task required me to export my language model to a JSON file. To do this, I added the JSON import to the top of `trigrams.ipynb`. I exported my language model to a dictionary and used the JSON import's `.dump` to simply add the language model dictionary to JSON. The creation of a dictionary is necessary for using the `.dump` command
 
 ## Project
 The project for this module is to create an ELIZA chatbot and to deploy it using Github Actions.

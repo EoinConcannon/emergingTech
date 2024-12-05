@@ -20,19 +20,23 @@
         <!-- Button to send user message -->
         <button id="send-button">Send</button>
     </div>
+
     <!-- Link to external JavaScript file -->
     <script src="eliza.js"></script>
     <script>
-        // Add event listener for 'Enter' key press on the user input field
-        document.getElementById('user-input').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add event listener for 'Enter' key press on the user input field
+            document.getElementById('user-input').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
 
-        // Add event listener for 'Send' button click
-        document.getElementById('send-button').addEventListener('click', sendMessage);
+            // Add event listener for 'Send' button click
+            document.getElementById('send-button').addEventListener('click', sendMessage);
+        });
     </script>
 </body>
+
 
 </html>

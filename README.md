@@ -65,7 +65,7 @@ However, this only provides the following when printed:
 ```
 <_io.TextIOWrapper name='trigrams.json' mode='w' encoding='UTF-8'>
 ```
-This output indicates that the file object has been created and opened in write mode, but it does not confirm that the data has been written to the file. To ensure that the trigram model is correctly exported to the JSON file, you should verify the contents of the file after the `json.dump` operation. You can do this by reading the file back and printing its contents:
+This output shows that the file object has been created and was opened in write mode, but it does not confirm that the data has been written to the file. To ensure that the trigram model is correctly exported to the JSON file, I will verify the contents of the file after the `json.dump` command by reading the file back and printing its contents:
 
 ```python
 import json
@@ -83,7 +83,7 @@ with open('trigrams.json', 'r') as trigram_json:
     print(data)
 ```
 
-This additional step ensures that the data has been correctly written to the JSON file and allows you to inspect the contents for accuracy. We successfully exported the language model to JSON.
+This additional step ensures that the data has been correctly written to the JSON file and allows you to inspect the contents for accuracy. I have successfully exported the language model to JSON.
 
 ## Project
 The project for this module is to create an ELIZA chatbot and to deploy it using Github Actions.

@@ -26,8 +26,109 @@ Once I got my five books, I had to process each book by removing unwanted charac
 
 I created a trigram model by combining all processed texts.
 
+```python
+import collections
+
+# List of file paths with author, book name, and date
+file_paths = [
+    'books/alice.txt',              # Lewis Carroll, Alice's Adventures in Wonderland, 1865
+    'books/beyond_good_evil.txt',   # Friedrich Nietzsche, Beyond Good and Evil, 1886
+    'books/dracula.txt',            # Bram Stoker, Dracula, 1897
+    'books/quixote.txt',            # Miguel de Cervantes, Don Quixote, 1605
+    'books/yellow_king.txt'         # Robert W. Chambers, The King in Yellow, 1895
+]
+
+finalText = ""
+
+# Read and process each file in file_paths list
+for file_path in file_paths:
+    with open(file_path, 'r') as file:
+        text = file.read()
+
+        # Convert text to uppercase
+        text = text.upper()
+
+        # Split the text to remove preamble and postamble
+        mainText = text.split('***')
+
+        # Define the characters we want to keep
+        values = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ. '
+
+        # Remove characters that are not in the values variable
+        cleanText = ''.join(c for c in mainText[2] if c in values)
+
+        # Add processed text to finalText
+        finalText += cleanText
+
+# Create trigrams from the finalText
+trigrams = [finalText[i:i+3] for i in range(len(finalText) - 2)]
+
+# Count the frequency of each trigram
+counts = collections.Counter(trigrams)
+
+# Sort the trigrams by frequency in descending order
+sorted_counts = sorted(counts.items(), key=lambda x: x[1], reverse=True)
+
+# Show sorted trigrams
+for string, count in sorted_counts:
+    print(f"'{string}': {count}")
+```
+
 ### Task Two
 In task two, I had to use the trigram model I created in the previous task to generate a 10,000 character string that would represent a fake language.
+
+#### Steps to Generate the 10,000 Character String
+
+1. **Initialize the Starting String:**
+   - The generated string must start with "TH" as per the requirement.
+
+2. **Generate Each Next Character:**
+   - For each subsequent character, look at the previous two characters.
+   - Find all trigrams in the model that start with those two characters.
+   - Randomly select one of the third letters of those trigrams, using the counts as weights.
+
+3. **Repeat Until the String is 10,000 Characters Long:**
+   - Continue generating characters until the string reaches the desired length.
+
+#### Code Implementation
+
+Here is the code used to generate the 10,000 character string:
+
+```python
+import random
+
+# Variables for generating our language model
+chars = counts.keys()
+weight = counts.values()
+
+# Initialize the starting string
+result = "TH"
+
+# Generate characters until the string is 10,000 characters long
+while len(result) < 10000:
+    # Get the last two characters from the current result
+    prefix = result[-2:]
+    
+    # Find all trigrams starting with this prefix
+    candidates = [(trigram[2], counts[trigram]) for trigram in chars if trigram.startswith(prefix)]
+    
+    # If no candidates are found, break out of the loop
+    if not candidates:
+        break
+    
+    # Separate possible next characters and their corresponding weights
+    next_chars, weights = zip(*candidates)
+    
+    # Select the next character based on the weights
+    next_char = random.choices(next_chars, weights=weights, k=1)[0]
+    
+    # Append the chosen character to the result
+    result += next_char
+
+# Print the generated text and check its length
+print(result)
+print(len(result))  # Should be 10,000 characters
+```
 
 ### Task Three
 In task three, I had to take the fake language I generated in the previous task and compare it to real English words in the `words.txt` file. I got chatGPT to generate this for me. It took the `words.txt` file and put its contents into a set called `words`, the set at this stage contains a single large string that was the contents of `words.txt`. Then the command `.split()` was used to split this string into individual words. This set was then compared to the fake language I generated and a precentage of how similar it was to English is displayed. Each time you rerun the entire `trigrams.ipynb` the percentage of accuracy will change as the language is being regenerated every time. My language model seems to have a conist percentage of around 35%-40% which I found suprising with how old my books were and also two of them being translated books from other languages.

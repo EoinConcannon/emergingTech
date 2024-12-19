@@ -45,8 +45,8 @@ const responses = [
 
 // Send message function
 function sendMessage() {
-    const userInput = document.getElementById("user-input").value;
-    if (userInput.trim() === "") return;
+    let userInput = document.getElementById("user-input").value.trim();
+    if (userInput === "") return;
 
     addMessageToHistory("You", userInput);
 
@@ -59,12 +59,15 @@ function sendMessage() {
 
 // Pattern-matching for response generation
 function getResponse(userText) {
+    if (!userText.trim() || userText.match(/^[\W_]+$/)) {
+        return "Could you please say something more specific?";
+    }
     for (let item of responses) {
         if (item.pattern.test(userText)) {
             const match = userText.match(item.pattern);
             const possibleResponses = item.responses;
             const response = possibleResponses[Math.floor(Math.random() * possibleResponses.length)];
-            return response.replace(/\$1/, match[1] || "");
+            return response.replace(/\$1/, match[1] || "").replace(/\$2/, match[2] || "");
         }
     }
     return "I'm not sure I understand. Can you clarify?";
@@ -74,6 +77,7 @@ function getResponse(userText) {
 function addMessageToHistory(sender, message) {
     conversationHistory += `<p><strong>${sender}:</strong> ${message}</p>`;
     document.getElementById("chat-history").innerHTML = conversationHistory;
+    console.log(`${sender}: ${message}`);
 }
 
 // Scroll to the bottom of the chat history

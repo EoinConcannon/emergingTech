@@ -22,9 +22,11 @@ This module introduces methods for identifying and implementing emerging technol
 ### Task One
 In task one, I was tasked with getting five books from Gutenberg.org, a digital library offering free old eBooks. These books serve as the groundwork for our language model. This is probably the most important/interesting requirement of the tasks as depending on what you chose can have an influence on the type of words that are generated. For example, I chose Friedrich Nietzsche's book "Beyond Good and Evil" (published in 1886) and Miguel de Cervantes's book "Don Quixote" (published in 1605), my choosing of these books will show influences of German and Spanish, however I can see rare letters in English like `x` appearing more often as a result.
 
-Once I got my five books, I had to process each book by removing unwanted characters and sections. First, I converted all characters in the book to uppercase using `.upper()`. I then had to remove all unwanted characters (characters that are not ASCII letters, fullstops and spaces)  Lastly, I split the text using `mainText = text.split('***')`, which splits the text creating a list where lines containing `***` will create a new list item with. Gutenberg uses `***` to indicate where the original contents of the book begin and end. This means that split will create a list containing three items, the second item is the one that I will be using, `mainText[2]`.
+Once I got my five books, I had to process each book by removing unwanted characters and sections. First, I converted all characters in the book to uppercase using `.upper()`. I then had to remove all unwanted characters (characters that are not ASCII letters, fullstops and spaces). Lastly, I split the text using `mainText = text.split('***')`, which splits the text creating a list where lines containing `***` will create a new list item. Gutenberg uses `***` to indicate where the original contents of the book begin and end. This means that the split will create a list containing three items, the second item is the one that I will be using, `mainText[2]`.
 
-I created a trigram model by combining all processed texts.
+After cleaning the text, I created a trigram model by combining all processed texts. A trigram is a sequence of three consecutive characters extracted from the text. By analyzing the frequency of each trigram, I was able to build a model that captures the patterns and structures of the language used in the books. This model serves as the foundation for generating new text that mimics the style and vocabulary of the original books.
+
+The following Python code snippet demonstrates the process of reading, cleaning, and creating the trigram model from the selected books:
 
 ```python
 import collections
@@ -73,6 +75,8 @@ sorted_counts = sorted(counts.items(), key=lambda x: x[1], reverse=True)
 for string, count in sorted_counts:
     print(f"'{string}': {count}")
 ```
+
+This code reads the text from each book, converts it to uppercase, removes unwanted characters, and splits the text to isolate the main content. It then creates trigrams from the cleaned text and counts their frequency. The resulting trigram model is sorted by frequency, providing a basis for further analysis and text generation in subsequent tasks.
 
 ### Task Two
 In task two, I had to use the trigram model I created in the previous task to generate a 10,000 character string that would represent a fake language.

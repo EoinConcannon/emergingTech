@@ -252,16 +252,36 @@ with open('trigrams.json', 'r') as trigram_json:
 This additional step ensures that the data has been correctly written to the JSON file and allows you to inspect the contents for accuracy. I have successfully exported the language model to JSON.
 
 ## Project
-The project for this module is to create an ELIZA chatbot and to deploy it using Github Actions.
-This project will be made using HTML, CSS for a user interface. JavaScript and/or WebAssembly for the chatbot logic.
+The project for this module is to create an ELIZA chatbot and to deploy it using GitHub Actions. This project is built using HTML and CSS for the user interface, and JavaScript for the chatbot logic.
 
-I got chatGPT to generate the user interface
+### User Interface
+I used ChatGPT to help generate the user interface. The goal was to make the interface resemble a traditional ELIZA chatbot interface, which typically features a simple, text-based interaction style. The interface includes:
+- A chat history area where the conversation between the user and ELIZA is displayed.
+- An input field where the user can type their messages.
+- A "Send" button to submit the user's messages.
 
-I chose to use JavaScript over WebAssembly as JavaScript is usually the 2nd best for chatbot creation behind Python.
+### Technology Choice
+I chose to use JavaScript over WebAssembly for the chatbot logic. JavaScript is a versatile and widely-used language for web development, making it a suitable choice for this project. While Python is often considered the best language for chatbot creation due to its extensive libraries and frameworks, JavaScript is a strong alternative, especially for client-side applications.
 
-I made ELIZA's response immediate as it is similar to how the original ELIZA works.
+### Immediate Response
+I designed ELIZA's responses to be immediate, mimicking the behavior of the original ELIZA chatbot. This ensures a smooth and responsive user experience, as users receive instant feedback to their inputs.
 
-For testing, I created tests in the same JavaScript file where I store my ELIZA chatbot functionality. 
+### Testing
+For testing, I created tests directly in the same JavaScript file where the ELIZA chatbot functionality is implemented. These tests are executed when the page loads, and the results are logged to the console. This approach allows for quick and easy verification of the chatbot's behavior without the need for an external testing framework.
 
-### Github Pages Link: https://eoinconcannon.github.io/emergingTech/eliza/
-Here is the link to my GitHub pages, specifically to the ELIZA chatbot.
+### Deployment
+The project is deployed using GitHub Actions, which automates the deployment process. The chatbot is hosted on GitHub Pages, making it easily accessible to users.
+
+### How to Use
+1. **Open the Chatbot:**
+   - Navigate to the [GitHub Pages link](https://eoinconcannon.github.io/emergingTech/eliza/) to access the ELIZA chatbot.
+
+2. **Start a Conversation:**
+   - Type your message in the input field and click the "Send" button or press the Enter key to submit your message.
+
+3. **View Responses:**
+   - ELIZA's responses will appear immediately in the chat history area.
+
+### Example Interaction
+Here is an example of a conversation with the ELIZA chatbot:
+```

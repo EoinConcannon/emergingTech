@@ -43,6 +43,7 @@ const responses = [
     { pattern: /happy/i, responses: ["What makes you feel happy?", "Why do you feel happy?"] },
     { pattern: /sad/i, responses: ["What makes you feel sad?", "Why do you feel sad?"] },
     { pattern: /tired|exhausted/i, responses: ["Why do you feel tired?", "What makes you feel exhausted?"] },
+    { pattern: /this (.*)/i, responses: ["Why does this $1 make you feel that way?", "What about this $1 bothers you?"] },
     { pattern: /bye|exit|quit/i, responses: ["Goodbye! Take care!", "See you later!"] },
     { pattern: /.*/i, responses: ["Can you tell me more about that?", "Why do you say that?", "How does that make you feel?"] } // Default response
 ];
@@ -58,6 +59,7 @@ function sendMessage() {
     addMessageToHistory("ELIZA", response);
 
     document.getElementById("user-input").value = "";
+    scrollToBottom();
 }
 
 // Pattern-matching for response generation
@@ -77,4 +79,10 @@ function getResponse(userText) {
 function addMessageToHistory(sender, message) {
     conversationHistory += `<p><strong>${sender}:</strong> ${message}</p>`;
     document.getElementById("chat-history").innerHTML = conversationHistory;
+}
+
+// Scroll to the bottom of the chat history
+function scrollToBottom() {
+    const chatHistory = document.getElementById("chat-history");
+    chatHistory.scrollTop = chatHistory.scrollHeight;
 }

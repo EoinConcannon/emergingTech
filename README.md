@@ -79,7 +79,11 @@ for string, count in sorted_counts:
 This code reads the text from each book, converts it to uppercase, removes unwanted characters, and splits the text to isolate the main content. It then creates trigrams from the cleaned text and counts their frequency. The resulting trigram model is sorted by frequency, providing a basis for further analysis and text generation in subsequent tasks.
 
 ### Task Two
-In task two, I had to use the trigram model I created in the previous task to generate a 10,000 character string that would represent a fake language.
+In task two, I had to use the trigram model I created in the previous task to generate a 10,000 character string that would represent a fake language. This task involved leveraging the trigram frequencies to produce a coherent sequence of characters that mimics the style and structure of the original texts.
+
+The process began by initializing the generated string with a starting sequence, specifically "TH". From there, each subsequent character was determined based on the preceding two characters. By examining the trigram model, I identified all possible trigrams that began with the last two characters of the current string. The third character of these trigrams was then selected probabilistically, with the likelihood of each character being chosen proportional to its frequency in the model.
+
+This method ensured that the generated text maintained the statistical properties of the original texts, resulting in a string that, while nonsensical, exhibited patterns and structures reminiscent of the source material. The final output was a 10,000 character string that served as a synthetic representation of the language model derived from the selected books.
 
 #### Steps to Generate the 10,000 Character String
 

@@ -50,7 +50,7 @@ for file_path in file_paths:
         # Convert text to uppercase
         text = text.upper()
 
-        # Split the text to remove preamble and postamble
+        # Split the text to remove Gutenberg intro and outro
         mainText = text.split('***')
 
         # Define the characters we want to keep
@@ -139,7 +139,7 @@ print(len(result))  # Should be 10,000 characters
 ```
 
 ### Task Three
-In task three, I had to take the fake language I generated in the previous task and compare it to real English words in the `words.txt` file. I got chatGPT to generate this for me. It took the `words.txt` file and put its contents into a set called `words`, the set at this stage contains a single large string that was the contents of `words.txt`. Then the command `.split()` was used to split this string into individual words. This set was then compared to the fake language I generated and a precentage of how similar it was to English is displayed. Each time you rerun the entire `trigrams.ipynb` the percentage of accuracy will change as the language is being regenerated every time. My language model seems to have a conist percentage of around 35%-40% which I found suprising with how old my books were and also two of them being translated books from other languages.
+In task three, I had to take the fake language I generated in the previous task and compare it to real English words in the `words.txt` file. I got chatGPT to generate this for me. It took the `words.txt` file and put its contents into a set called `words`, the set at this stage contains a single large string that was the contents of `words.txt`. Then the command `.split()` was used to split this string into individual words. This set was then compared to the fake language I generated and a precentage of how similar it was to English is displayed. Each time you rerun the entire `trigrams.ipynb` the percentage of accuracy will change as the language is being regenerated every time. My language model seems to have a consistent percentage of around 35%-40% which I found surprising with how old my chosen books were and also two of them being translated books from other languages.
 ### Steps to Compare Generated Text to Real English Words
 
 1. **Load the List of Real English Words:**

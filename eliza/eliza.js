@@ -4,11 +4,9 @@ let conversationHistory = "";
 // Responses for ELIZA with multiple possible responses
 const responses = [
     { pattern: /hello|hi/i, responses: ["Hello! How can I help you today?", "Hi there! What can I do for you?"] },
-    { pattern: /i need (.*)/i, responses: ["Why do you need $1?", "What would it mean to you if you got $1?"] },
-    { pattern: /i want (.*)/i, responses: ["What would it mean to you if you got $1?", "Why do you want $1?"] },
-    { pattern: /i feel (.*)/i, responses: ["Why do you feel $1?", "How long have you felt $1?"] },
-    { pattern: /i am (.*)/i, responses: ["How long have you been $1?", "Why do you think you are $1?"] },
+    { pattern: /i (need|want|feel|am|can't|think|don't) (.*)/i, responses: ["Why do you $1 $2?", "What would it mean to you if you $1 $2?"] },
     { pattern: /because (.*)/i, responses: ["Is that the real reason you think $1?", "What other reasons might there be?"] },
+    { pattern: /because (i|i'll|i'm) (.*)/i, responses: ["Is that the real reason you think $2?", "What other reasons might there be?"] },
     { pattern: /why can'?t i (.*)/i, responses: ["Do you think you should be able to $1?", "What would it take for you to $1?"] },
     { pattern: /are you (.*)/i, responses: ["What would it mean to you if I were $1?", "Why do you ask if I am $1?"] },
     { pattern: /what (.*)/i, responses: ["Why do you ask that?", "What do you think?"] },
@@ -22,8 +20,6 @@ const responses = [
     { pattern: /yes/i, responses: ["Can you tell me more?", "Why do you say yes?"] },
     { pattern: /no/i, responses: ["Why not?", "Can you explain why?"] },
     { pattern: /maybe/i, responses: ["Why the uncertainty?", "What makes you unsure?"] },
-    { pattern: /i can'?t (.*)/i, responses: ["What would it take for you to be able to $1?", "Why do you think you can't $1?"] },
-    { pattern: /i'?m (.*)/i, responses: ["How does being $1 make you feel?", "Why do you say you are $1?"] },
     { pattern: /is it (.*)/i, responses: ["Do you think it is $1?", "Why do you ask if it is $1?"] },
     { pattern: /it is (.*)/i, responses: ["Why do you think it is $1?", "What makes you say it is $1?"] },
     { pattern: /do you think (.*)/i, responses: ["Why do you ask whether I think $1?", "What do you think about $1?"] },
@@ -32,8 +28,6 @@ const responses = [
     { pattern: /you are (.*)/i, responses: ["What makes you think I am $1?", "Why do you say I am $1?"] },
     { pattern: /am i (.*)/i, responses: ["Why do you ask if you are $1?", "What makes you think you are $1?"] },
     { pattern: /you'?re (.*)/i, responses: ["Does it bother you that I am $1?", "Why do you say I am $1?"] },
-    { pattern: /i think (.*)/i, responses: ["Why do you think $1?", "What makes you think $1?"] },
-    { pattern: /i don'?t (.*)/i, responses: ["Why don’t you $1?", "What would it take for you to $1?"] },
     { pattern: /everyone (.*)/i, responses: ["Can you think of anyone in particular?", "Why do you say everyone $1?"] },
     { pattern: /always (.*)/i, responses: ["Can you think of a specific time when it was different?", "Why do you say always $1?"] },
     { pattern: /never (.*)/i, responses: ["Why do you think that has never happened?", "Can you think of a time when it did happen?"] },
@@ -44,6 +38,7 @@ const responses = [
     { pattern: /sad/i, responses: ["What makes you feel sad?", "Why do you feel sad?"] },
     { pattern: /tired|exhausted/i, responses: ["Why do you feel tired?", "What makes you feel exhausted?"] },
     { pattern: /this (.*)/i, responses: ["Why does this $1 make you feel that way?", "What about this $1 bothers you?"] },
+    { pattern: /this/i, responses: ["Why does this make you feel that way?", "What about this bothers you?"] },
     { pattern: /bye|exit|quit/i, responses: ["Goodbye! Take care!", "See you later!"] },
     { pattern: /.*/i, responses: ["Can you tell me more about that?", "Why do you say that?", "How does that make you feel?"] } // Default response
 ];

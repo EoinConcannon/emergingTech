@@ -259,6 +259,7 @@ I used ChatGPT to help generate the user interface. The goal was to make the int
 - A chat history area where the conversation between the user and ELIZA is displayed.
 - An input field where the user can type their messages.
 - A "Send" button to submit the user's messages.
+- ELIZA immediately sends the user a response like it traditionally does, unlike modern chatbots which try to replicate user typing.
 
 ### Technology Choice
 I chose to use JavaScript over WebAssembly for the chatbot logic. JavaScript is a versatile and widely-used language for web development, making it a suitable choice for this project. While Python is often considered the best language for chatbot creation due to its extensive libraries and frameworks, JavaScript is a strong alternative, especially for client-side applications.
@@ -282,6 +283,5 @@ The project is deployed using GitHub Actions, which automates the deployment pro
 3. **View Responses:**
    - ELIZA's responses will appear immediately in the chat history area.
 
-### Example Interaction
-Here is an example of a conversation with the ELIZA chatbot:
-```
+### Github Pages Link: https://eoinconcannon.github.io/emergingTech/eliza/
+Here is the link to my GitHub pages, specifically to the ELIZA chatbot.

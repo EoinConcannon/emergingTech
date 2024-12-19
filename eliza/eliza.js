@@ -75,7 +75,7 @@ function getResponse(userText) {
 
 // Add messages to conversation history
 function addMessageToHistory(sender, message) {
-    conversationHistory += `<p><strong>${sender}:</strong> ${message}</p>`;
+    conversationHistory += `<p><span class="chat-sender">${sender}:</span> ${message}</p>`;
     document.getElementById("chat-history").innerHTML = conversationHistory;
     console.log(`${sender}: ${message}`);
 }

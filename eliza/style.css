@@ -41,6 +41,7 @@ p {
 .input-container {
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 
 .input-container span {
@@ -54,8 +55,9 @@ input[type="text"] {
     color: #00ff00;
     border: 1px solid #444;
     padding: 8px;
-    width: 80%;
+    width: 70%;
     font-family: 'Courier New', Courier, monospace;
+    margin-right: 10px;
 }
 
 button {

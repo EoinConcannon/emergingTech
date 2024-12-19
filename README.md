@@ -261,5 +261,7 @@ I chose to use JavaScript over WebAssembly as JavaScript is usually the 2nd best
 
 I made ELIZA's response immediate as it is similar to how the original ELIZA works.
 
+For testing, I created tests in the same JavaScript file where I store my ELIZA chatbot functionality. 
+
 ### Github Pages Link: https://eoinconcannon.github.io/emergingTech/eliza/
 Here is the link to my GitHub pages, specifically to the ELIZA chatbot.

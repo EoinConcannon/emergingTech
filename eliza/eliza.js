@@ -80,9 +80,38 @@ function addMessageToHistory(sender, message) {
     console.log(`${sender}: ${message}`);
 }
 
-
 // Scroll to the bottom of the chat history
 function scrollToBottom() {
     const chatHistory = document.getElementById("chat-history");
     chatHistory.scrollTop = chatHistory.scrollHeight;
 }
+
+// Tests
+function runTests() {
+    const testCases = [
+        { input: 'hello', expected: /Hello! How can I help you today?|Hi there! What can I do for you?/ },
+        { input: 'i need help', expected: /Why do you need help?|What would it mean to you if you need help?/ },
+        { input: 'because I can', expected: /Is that the real reason you think I can?|What other reasons might there be?/ },
+        { input: '', expected: "Could you please say something more specific?" },
+        { input: 'unknown pattern', expected: "I'm not sure I understand. Can you clarify?" }
+    ];
+
+    testCases.forEach(testCase => {
+        const response = getResponse(testCase.input);
+        const result = testCase.expected instanceof RegExp ? testCase.expected.test(response) : response === testCase.expected;
+        console.log(`Test input: "${testCase.input}" - ${result ? 'Passed' : 'Failed'}`);
+    });
+
+    // Test addMessageToHistory
+    addMessageToHistory('You', 'Hello, ELIZA!');
+    const chatHistory = document.getElementById('chat-history').innerText;
+    console.log(`Test addMessageToHistory - ${chatHistory.includes('You: Hello, ELIZA!') ? 'Passed' : 'Failed'}`);
+
+    // Test scrollToBottom
+    const chatHistoryElement = document.getElementById('chat-history');
+    scrollToBottom();
+    console.log(`Test scrollToBottom - ${chatHistoryElement.scrollTop === chatHistoryElement.scrollHeight ? 'Passed' : 'Failed'}`);
+}
+
+// Run tests on page load
+document.addEventListener('DOMContentLoaded', runTests);

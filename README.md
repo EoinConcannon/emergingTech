@@ -278,7 +278,7 @@ I chose to use JavaScript over WebAssembly for the chatbot logic. JavaScript is 
 ### ELIZA Chatbot Logic
 I designed ELIZA's responses to be immediate, mimicking the behavior of the original ELIZA chatbot. This ensures a smooth and responsive user experience, as users receive instant feedback to their inputs.
 
-All ELIZA chatbot logic is implemented using JavaScript `eliza.js`. The chatbot uses pattern matching to identify user inputs and respond accordingly, This was my first time using pattern matching in JavaScript and I found it both interesting and useful as it helped me cut down a lot of work for the chatbot logic, I reminds me of the siwtch statement in Java. The responses are designed to mimic the behavior of the original ELIZA chatbot, which often reflected the user's statements back at them in the form of questions.
+All ELIZA chatbot logic is implemented using JavaScript `eliza.js`. The chatbot uses pattern matching to identify user inputs and respond accordingly, This was my first time using pattern matching in JavaScript and I found it both interesting and useful as it helped me cut down a lot of work for the chatbot logic, it reminds me of the switch statement in Java. The responses are designed to mimic the behavior of the original ELIZA chatbot, which often reflected the user's statements back at them in the form of questions.
 
 Here is an example of how I used pattern matching:
 

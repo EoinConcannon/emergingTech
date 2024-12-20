@@ -253,7 +253,10 @@ This additional step ensures that the data has been correctly written to the JSO
 
 ## Project
 The project for this module is to create an ELIZA chatbot and to deploy it using GitHub Actions. This project is built using HTML and CSS for the user interface, and JavaScript for the chatbot logic. The project was to also be deployed using GitHub Actions.
-For my ELIZA chatbot, after commit `4ebda87ebb0e479066c7a2fafc34982a27431ab3` and researching videos on ELIZA, e.g. https://www.youtube.com/watch?v=4sngIh0YJtk. I decided to make it somewhat replicate the original style of ELIZA such as the dark colour scheme of the terminal, the instant reponse from ELIZA, reflecting questions back at the user, etc..
+
+For my ELIZA chatbot, after commit [`4ebda87`](https://github.com/eoinconcannon/emergingTech/commit/4ebda87ebb0e479066c7a2fafc34982a27431ab3) and researching videos on ELIZA such as this clip I found from an old 1983 TV show talking about ELIZA: [YouTube link](https://www.youtube.com/watch?v=4sngIh0YJ
+
+I decided to make it somewhat replicate the original style of ELIZA such as the dark colour scheme of the terminal, the instant reponse from ELIZA, reflecting questions back at the user, etc..
 
 ### User Interface
 I used ChatGPT to help generate the user interface. The goal was to make the interface resemble a traditional ELIZA chatbot interface, which typically features a simple, text-based interaction style. The interface includes:
@@ -265,14 +268,40 @@ I used ChatGPT to help generate the user interface. The goal was to make the int
 ### Technology Choice
 I chose to use JavaScript over WebAssembly for the chatbot logic. JavaScript is a versatile and widely-used language for web development, making it a suitable choice for this project. While Python is often considered the best language for chatbot creation due to its extensive libraries and frameworks, JavaScript is a strong alternative, especially for client-side applications.
 
-### Immediate Response
+### ELIZA Chatbot Logic
 I designed ELIZA's responses to be immediate, mimicking the behavior of the original ELIZA chatbot. This ensures a smooth and responsive user experience, as users receive instant feedback to their inputs.
+
+All ELIZA chatbot logic is implemented using JavaScript `eliza.js`. The chatbot uses pattern matching to identify user inputs and respond accordingly, This was my first time using pattern matching in JavaScript and I found it both interesting and useful as it helped me cut down a lot of work for the chatbot logic, I reminds me of the siwtch statement in Java. The responses are designed to mimic the behavior of the original ELIZA chatbot, which often reflected the user's statements back at them in the form of questions.
+
+Here is an example of how I used pattern matching:
+
+```eliza.js
+// Responses for ELIZA with multiple possible responses
+const responses = [
+    { pattern: /hello|hi/i, responses: ["Hello! How can I help you today?", "Hi there! What can I do for you?"] },
+    { pattern: /i (need|want|feel|am|can't|think|don't) (.*)/i, responses: ["Why do you $1 $2?", "What would it mean to you if you $1 $2?"] },
+    { pattern: /because (.*)/i, responses: ["Is that the real reason you think $1?", "What other reasons might there be?"] },
+    { pattern: /because (i|i'll|i'm) (.*)/i, responses: ["Is that the real reason you think $2?", "What other reasons might there be?"] },
+    { pattern: /why can'?t i (.*)/i, responses: ["Do you think you should be able to $1?", "What would it take for you to $1?"] },
+    { pattern: /what (.*)/i, responses: ["Why do you ask that?", "What do you think?"] },
+    { pattern: /how (.*)/i, responses: ["How do you suppose?", "Why do you ask how $1?"] },
+    { pattern: /thank you|thanks/i, responses: ["You're welcome!", "No problem!"] },
+    { pattern: /yes/i, responses: ["Can you tell me more?", "Why do you say yes?"] },
+    { pattern: /no/i, responses: ["Why not?", "Can you explain why?"] },
+    { pattern: /am i (.*)/i, responses: ["Why do you ask if you are $1?", "What makes you think you are $1?"] },
+    { pattern: /angry|mad/i, responses: ["What makes you feel angry?", "Why do you feel angry?"] },
+    { pattern: /this (.*)/i, responses: ["Why does this $1 make you feel that way?", "What about this $1 bothers you?"] },
+    { pattern: /this/i, responses: ["Why does this make you feel that way?", "What about this bothers you?"] },
+    { pattern: /bye|exit|quit/i, responses: ["Goodbye! Take care!", "See you later!"] },
+    { pattern: /.*/i, responses: ["Can you tell me more about that?", "Why do you say that?", "How does that make you feel?"] } // Default response
+];
+```
 
 ### Testing
 For testing, I created tests directly in the same JavaScript file where the ELIZA chatbot functionality is implemented. These tests are executed when the page loads, and the results are logged to the console. This approach allows for quick and easy verification of the chatbot's behavior without the need for an external testing framework.
 
 ### Deployment
-I am deploying ELIZA using GitHub Actions. I found GitHub Pages quite useful as it simplified the deployment process. It made my ELIZA chatbot easily accessible to users who just need to click on a link to access it.
+I am deploying ELIZA using GitHub Actions as this is a basic ELIZA chatbot that doesn't require any external dependencies. I found GitHub Pages quite useful as it simplified the deployment process. It made my ELIZA chatbot easily accessible to users who just need to click on a link to access it.
 
 Additionally, I have included a `demo.yaml` file in the repository to demonstrate the basic capabilities of GitHub Actions. This file showcases how to set up and run a simple workflow that checks out the repository code and lists the files in the repository.
 

@@ -4,14 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Link to external CSS file -->
+    <!-- Link to external CSS file for styling -->
     <link rel="stylesheet" href="style.css">
     <title>ELIZA Chatbot</title>
 </head>
 
 <body>
+    <!-- Main container for the chatbot -->
     <div class="chatbot-container">
+        <!-- Title of the chatbot -->
         <h1>ELIZA Chatbot</h1>
+        <!-- Welcome message -->
         <p>Welcome! I am ELIZA, your virtual therapist. Feel free to share your thoughts.</p>
         <!-- Container for chat history -->
         <div id="chat-history"></div>
@@ -24,7 +27,7 @@
         <button id="send-button">Send</button>
     </div>
 
-    <!-- Link to external JavaScript file -->
+    <!-- Link to external JavaScript file for chatbot logic -->
     <script src="eliza.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

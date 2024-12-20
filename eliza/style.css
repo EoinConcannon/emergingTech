@@ -1,7 +1,10 @@
 body {
-    font-family: 'Courier New', Courier, monospace; /* Monospaced font */
-    background-color: #222;  /* Dark background */
-    color: #00ff00;          /* Classic green text */
+    font-family: 'Courier New', Courier, monospace;
+    /* Monospaced font */
+    background-color: #222;
+    /* Dark background */
+    color: #00ff00;
+    /* Classic green text */
     margin: 0;
     height: 100vh;
     display: flex;
@@ -12,14 +15,16 @@ body {
 .chatbot-container {
     width: 80%;
     max-width: 500px;
-    background-color: #000;  /* Terminal background */
+    background-color: #000;
+    /* Terminal background */
     padding: 20px;
     border: 2px solid #444;
     box-shadow: 0px 0px 15px #111;
 }
 
 h1 {
-    color: #fff; /* White title */
+    color: #fff;
+    /* White title */
     text-align: center;
 }
 
@@ -34,7 +39,8 @@ p {
     padding: 10px;
     height: 300px;
     overflow-y: auto;
-    white-space: pre-wrap; /* Preserve line breaks */
+    white-space: pre-wrap;
+    /* Preserve line breaks */
     font-family: 'Courier New', Courier, monospace;
 }
 

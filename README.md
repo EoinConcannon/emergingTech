@@ -252,7 +252,8 @@ with open('trigrams.json', 'r') as trigram_json:
 This additional step ensures that the data has been correctly written to the JSON file and allows you to inspect the contents for accuracy. I have successfully exported the language model to JSON.
 
 ## Project
-The project for this module is to create an ELIZA chatbot and to deploy it using GitHub Actions. This project is built using HTML and CSS for the user interface, and JavaScript for the chatbot logic.
+The project for this module is to create an ELIZA chatbot and to deploy it using GitHub Actions. This project is built using HTML and CSS for the user interface, and JavaScript for the chatbot logic. The project was to also be deployed using GitHub Actions.
+For my ELIZA chatbot, after commit `4ebda87ebb0e479066c7a2fafc34982a27431ab3` and researching videos on ELIZA, e.g. https://www.youtube.com/watch?v=4sngIh0YJtk. I decided to make it somewhat replicate the original style of ELIZA such as the dark colour scheme of the terminal, the instant reponse from ELIZA, reflecting questions back at the user, etc..
 
 ### User Interface
 I used ChatGPT to help generate the user interface. The goal was to make the interface resemble a traditional ELIZA chatbot interface, which typically features a simple, text-based interaction style. The interface includes:
@@ -271,7 +272,11 @@ I designed ELIZA's responses to be immediate, mimicking the behavior of the orig
 For testing, I created tests directly in the same JavaScript file where the ELIZA chatbot functionality is implemented. These tests are executed when the page loads, and the results are logged to the console. This approach allows for quick and easy verification of the chatbot's behavior without the need for an external testing framework.
 
 ### Deployment
-The project is deployed using GitHub Actions, which automates the deployment process. The chatbot is hosted on GitHub Pages, making it easily accessible to users.
+I am deploying ELIZA using GitHub Actions. I found GitHub Pages quite useful as it simplified the deployment process. It made my ELIZA chatbot easily accessible to users who just need to click on a link to access it.
+
+Additionally, I have included a `demo.yaml` file in the repository to demonstrate the basic capabilities of GitHub Actions. This file showcases how to set up and run a simple workflow that checks out the repository code and lists the files in the repository.
+
+GitHub Actions documentation: [GitHub Actions documentation](https://docs.github.com/en/actions).
 
 ### How to Use
 1. **Open the Chatbot:**

@@ -10,7 +10,14 @@
     - 2.3 [Task Three](#task-three)
     - 2.4 [Task Four](#task-four)
 3. [Project](#project)
-    - 3.1 [GitHub Pages Link](https://eoinconcannon.github.io/emergingTech/eliza/)
+    - 3.1 [User Interface](#user-interface)
+    - 3.2 [Technology Choice](#technology-choice)
+    - 3.3 [ELIZA Chatbot Logic](#eliza-chatbot-logic)
+    - 3.4 [Testing](#testing)
+    - 3.5 [Deployment](#deployment)
+    - 3.6 [How to Use](#how-to-use)
+    - 3.7 [GitHub Pages Link](#github-pages-link)
+4. [Conclusion](#conclusion)
 
 
 ## Module Overview
@@ -22,7 +29,7 @@ This module introduces methods for identifying and implementing emerging technol
 ### Task One
 In task one, I was tasked with getting five books from Gutenberg.org, a digital library offering free old eBooks. These books serve as the groundwork for our language model. This is probably the most important/interesting requirement of the tasks as depending on what you chose can have an influence on the type of words that are generated. For example, I chose Friedrich Nietzsche's book "Beyond Good and Evil" (published in 1886) and Miguel de Cervantes's book "Don Quixote" (published in 1605), my choosing of these books will show influences of German and Spanish, however I can see rare letters in English like `x` appearing more often as a result.
 
-Once I got my five books, I had to process each book by removing unwanted characters and sections. First, I converted all characters in the book to uppercase using `.upper()`. I then had to remove all unwanted characters (characters that are not ASCII letters, fullstops and spaces). Lastly, I split the text using `mainText = text.split('***')`, which splits the text creating a list where lines containing `***` will create a new list item. Gutenberg uses `***` to indicate where the original contents of the book begin and end. This means that the split will create a list containing three items, the second item is the one that I will be using, `mainText[2]`.
+Once I got my five books, I had to process each book by removing unwanted characters and sections. First, I converted all characters in the book to uppercase using `.upper()`. I then had to remove all unwanted characters (characters that are not ASCII letters, full stops and spaces). Lastly, I split the text using `mainText = text.split('***')`, which splits the text creating a list where lines containing `***` will create a new list item. Gutenberg uses `***` to indicate where the original contents of the book begin and end. This means that the split will create a list containing three items, the second item is the one that I will be using, `mainText[2]`.
 
 After cleaning the text, I created a trigram model by combining all processed texts. A trigram is a sequence of three consecutive characters extracted from the text. By analyzing the frequency of each trigram, I was able to build a model that captures the patterns and structures of the language used in the books. This model serves as the foundation for generating new text that mimics the style and vocabulary of the original books.
 
@@ -256,7 +263,7 @@ The project for this module is to create an ELIZA chatbot and to deploy it using
 
 For my ELIZA chatbot, after commit [`4ebda87`](https://github.com/eoinconcannon/emergingTech/commit/4ebda87ebb0e479066c7a2fafc34982a27431ab3) and researching videos on ELIZA such as this clip I found from an old 1983 TV show talking about ELIZA: [YouTube link](https://www.youtube.com/watch?v=4sngIh0YJ
 
-I decided to make it somewhat replicate the original style of ELIZA such as the dark colour scheme of the terminal, the instant reponse from ELIZA, reflecting questions back at the user, etc..
+I decided to make it somewhat replicate the original style of ELIZA such as the dark colour scheme of the terminal, the instant response from ELIZA, reflecting questions back at the user, etc..
 
 ### User Interface
 I used ChatGPT to help generate the user interface. The goal was to make the interface resemble a traditional ELIZA chatbot interface, which typically features a simple, text-based interaction style. The interface includes:
@@ -319,3 +326,10 @@ GitHub Actions documentation: [GitHub Actions documentation](https://docs.github
 
 ### Github Pages Link: https://eoinconcannon.github.io/emergingTech/eliza/
 Here is the link to my GitHub pages, specifically to the ELIZA chatbot.
+
+## Conclusion
+Throughout this assignment, I have explored various aspects of language modeling and chatbot development. By working through the tasks, I gained hands-on experience in text processing, trigram model creation, synthetic text generation, and comparing said synthetic text with real English words. Additionally, I successfully implemented and deployed an ELIZA chatbot using JavaScript, HTML, and CSS, and used GitHub Actions for continuous deployment.
+
+This assignment has not only enhanced my understanding of natural language processing techniques but also provided valuable insights into the practical challenges of building and deploying a chatbot. I also learned more about GitHub Actions and other GitHub features through both from this assignment and the lectures.
+
+Thank you for taking the time to review my work. I hope you find the insights and implementations presented here both informative and engaging.
